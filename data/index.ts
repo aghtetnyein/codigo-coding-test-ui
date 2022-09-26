@@ -11,6 +11,20 @@ const navItems = [
   "Support",
 ];
 
+const devices = ["apple-tv", "iphone", "ipad", "mac", "airplay"];
+const supportedDevices = [
+  "samsung",
+  "lg",
+  "vizio",
+  "sony",
+  "xfinity",
+  "roku",
+  "firetv",
+  "googletv",
+  "ps",
+  "xbox",
+];
+
 const movies = [
   {
     status: "New Released",
@@ -99,6 +113,8 @@ const aboutApple = [
 
 export {
   navItems,
+  devices,
+  supportedDevices,
   movies,
   shopNLearn,
   services,

@@ -1,0 +1,60 @@
+@import "./variables";
+
+.about {
+  background-color: $about-bg;
+  color: $about-text;
+  font-size: 12px;
+  padding: 2rem $nav-y-padding;
+}
+
+.breadcrumb {
+  @include center($justify: flex-start);
+  margin: 20px 0;
+}
+
+.breadcrumb span {
+  padding-left: 25px;
+}
+
+.more {
+  @include center($align: flex-start, $justify: flex-start);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.more > div {
+  margin: 10px 20px 10px 0;
+}
+
+.more span {
+  color: $more-text;
+  font-weight: bold;
+}
+
+.more p {
+  margin: 10px 0;
+}
+
+.about a {
+  color: $noti-button;
+  text-decoration: none;
+}
+
+.vl {
+  border-left: 1px solid $noti-bg;
+  height: 15px;
+  margin: 0 10px;
+}
+
+.cr {
+  @include center($justify: flex-start);
+}
+
+.us {
+  @include center($justify: space-between);
+  width: 60%;
+}
+
+.us > div {
+  @include center;
+}

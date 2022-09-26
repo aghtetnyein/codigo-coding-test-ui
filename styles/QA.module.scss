@@ -1,0 +1,41 @@
+@import "./variables";
+
+.answers {
+  @include center($direction: column, $justify: start);
+  padding: 0 $nav-y-padding;
+}
+
+.answers hr {
+  border: 0.1px solid $border-color;
+  width: 100%;
+}
+
+.q {
+  cursor: pointer;
+  padding: 0;
+}
+
+.a {
+  padding: 0 0;
+  width: 100%;
+}
+
+.qa header {
+  font-size: 4rem;
+  font-family: "Apple Sans Bold", serif;
+  text-align: center;
+  margin: 0 0 4rem 0;
+  line-height: 1;
+  letter-spacing: -0.1rem;
+}
+
+.qa button {
+  background-color: transparent;
+  font-family: "Apple Sans Bold", serif;
+  width: 100%;
+  text-align: start;
+  border: none;
+  border-radius: 0;
+  font-size: 1.2rem;
+  line-height: 0.1rem;
+}

@@ -10,6 +10,7 @@
   color: $text;
   background-color: $sticky-bg;
   padding: 0.2rem $nav-y-padding;
+  z-index: 10;
 }
 
 .sticky button {

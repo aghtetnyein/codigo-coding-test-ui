@@ -1,0 +1,44 @@
+@import "./variables";
+
+.tv {
+  @include center($direction: column);
+  padding: 6rem 0;
+}
+
+.tv header {
+  font-size: 4.5rem;
+  font-family: "Apple Sans Bold", serif;
+  text-align: center;
+  margin: 2rem 0 1.5rem 0;
+  line-height: 1;
+  letter-spacing: -0.2rem;
+}
+
+.tv span {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.tv a {
+  text-decoration: none;
+  color: $noti-button;
+}
+
+.devices {
+  @include center($justify: space-between);
+  width: 55%;
+  margin: 4rem 0;
+}
+
+.supported-devices {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.tv p {
+  @extend header;
+  font-size: 2.3rem;
+  letter-spacing: normal;
+}

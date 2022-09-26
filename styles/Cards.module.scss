@@ -1,0 +1,59 @@
+@import "./variables";
+
+.cards {
+  @include center;
+  margin: 50px 0;
+}
+
+.hCard {
+  @include center;
+  height: 540px;
+  width: 85%;
+  gap: 6rem;
+  background-color: $about-bg;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.vCard button,
+.hCard button {
+  background-color: $nav-bg;
+  color: $text;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  margin: 20px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.vCard button:hover,
+.hCard button:hover {
+  background-color: $noti-bg;
+}
+
+.vCard a,
+.hCard a {
+  text-decoration: none;
+  color: $noti-button;
+  font-size: 16px;
+}
+
+.vCard header,
+.hCard header {
+  font-size: 40px;
+  font-family: "Apple Sans Bold", serif;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.07rem;
+}
+
+.vCard {
+  @include center;
+  width: 640px;
+  height: 840px;
+  background-color: $about-bg;
+  border-radius: 15px;
+  margin: 20px 10px;
+  padding: 20px 0 0 0;
+}
