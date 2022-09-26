@@ -134,13 +134,10 @@ const Footer = () => {
         Copyright © 2022 Apple Inc. All rights reserved.
         <div className={styles.us}>
           <div>
-            <div className={styles.vl}> Privacy Policy </div>
-            <div className={styles.vl}> Terms of Use </div>
-            <div className={styles.vl}> Sales and Refunds </div>
-            <div className={styles.vl}>
-              {" "}
-              Legal <div className={styles.vl} />{" "}
-            </div>
+            <div className={styles.vl} /> Privacy Policy{" "}
+            <div className={styles.vl} /> Terms of Use{" "}
+            <div className={styles.vl} /> Sales and Refunds{" "}
+            <div className={styles.vl} /> Legal <div className={styles.vl} />{" "}
             Site Map{" "}
           </div>
           <div>
