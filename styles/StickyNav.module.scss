@@ -1,0 +1,22 @@
+@import "./variables";
+
+.sticky {
+  @include center($justify: space-between);
+
+  position: sticky;
+  top: 0;
+  font-size: 1.2rem;
+  font-family: "Apple Sans Bold", serif;
+  color: $text;
+  background-color: $sticky-bg;
+  padding: 0.2rem $nav-y-padding;
+}
+
+.sticky button {
+  background-color: $text;
+  border-radius: 12px;
+  border: none;
+  color: $noti-bg;
+  cursor: pointer;
+  padding: 5px 10px;
+}
