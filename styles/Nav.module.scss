@@ -3,6 +3,7 @@
 .nav {
   @include center($justify: space-between);
 
+  width: 100%;
   background-color: $nav-bg;
   color: $nav-text;
   padding: 10px $nav-y-padding;

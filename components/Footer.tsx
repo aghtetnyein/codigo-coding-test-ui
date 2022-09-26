@@ -130,21 +130,24 @@ const Footer = () => {
       <br />
       <hr />
       <br />
-      <p className={styles.cr}>
+      <div className={styles.cr}>
         Copyright © 2022 Apple Inc. All rights reserved.
         <div className={styles.us}>
           <div>
-            <div className={styles.vl} /> Privacy Policy{" "}
-            <div className={styles.vl} /> Terms of Use{" "}
-            <div className={styles.vl} /> Sales and Refunds{" "}
-            <div className={styles.vl} /> Legal <div className={styles.vl} />{" "}
+            <div className={styles.vl}> Privacy Policy </div>
+            <div className={styles.vl}> Terms of Use </div>
+            <div className={styles.vl}> Sales and Refunds </div>
+            <div className={styles.vl}>
+              {" "}
+              Legal <div className={styles.vl} />{" "}
+            </div>
             Site Map{" "}
           </div>
           <div>
             <p>United States</p>
           </div>
         </div>
-      </p>
+      </div>
     </div>
   );
 };
