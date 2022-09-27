@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
+import Link from "next/link";
 
 // scss
 import styles from "../styles/SectionHero.module.scss";
@@ -52,9 +52,10 @@ const SectionHero = () => {
               <br />
               Only on Apple TV+.
             </h2>
-            <a href="https://tv.apple.com/channel/tvs.sbd.4000?itscg=10000&itsct=atv-tv_op-nav_wch-ctr-210111">
+            <Link href={"/tvapple"}>Stream now</Link>
+            {/* <a href="https://tv.apple.com/channel/tvs.sbd.4000?itscg=10000&itsct=atv-tv_op-nav_wch-ctr-210111">
               Stream now
-            </a>
+            </a> */}
             <p>Watch on the tv App</p>
           </div>
         </section>
