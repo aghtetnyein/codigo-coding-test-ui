@@ -15,19 +15,29 @@ const Gallery = () => {
 
     let currentTranslate = 0;
     let currentSlide = 1;
-    const space = 46;
+    let space = 46;
     const maxSlide = 8;
 
-    // setInterval(() => {
-    //   if (currentSlide < maxSlide - 1) {
-    //     currentSlide++;
-    //     currentTranslate -= space;
-    //   } else {
-    //     currentSlide = 1;
-    //     currentTranslate = 0;
-    //   }
-    //   imageContainer!.style.transform = `translateX(${currentTranslate}rem)`;
-    // }, 5000);
+    const handleWindowResize = () => {
+      if (window.innerWidth < 768) {
+        space = 26;
+      } else {
+        space = 46;
+      }
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    setInterval(() => {
+      if (currentSlide < maxSlide - 1) {
+        currentSlide++;
+        currentTranslate -= space;
+      } else {
+        currentSlide = 1;
+        currentTranslate = 0;
+      }
+      imageContainer!.style.transform = `translateX(${currentTranslate}rem)`;
+    }, 5000);
 
     leftClick!.addEventListener("click", () => {
       if (currentSlide > 1) {
@@ -50,6 +60,10 @@ const Gallery = () => {
       }
       imageContainer!.style.transform = `translateX(${currentTranslate}rem)`;
     });
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, []);
 
   return (

@@ -6,7 +6,7 @@ import styles from "../styles/SectionHero.module.scss";
 
 const SectionHero = () => {
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       const scrollY = window.scrollY;
       const video = document.getElementById("bgVideo");
       const firstContent = document.getElementById("firstContent");
@@ -30,7 +30,12 @@ const SectionHero = () => {
       if (scrollY > 500) {
         price!.style.opacity = `${0 + (scrollY - 700) / 300}`;
       }
-    });
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

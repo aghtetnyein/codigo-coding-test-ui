@@ -34,11 +34,16 @@
     padding: 3rem 0;
     gap: 2rem;
     img {
-      width: 44rem;
-      height: 25rem;
+      width: 24rem;
+      height: 12rem;
       object-fit: cover;
       transition: all 0.5s ease-in-out;
       border-radius: 1rem;
+
+      @media (min-width: 768px) {
+        width: 44rem;
+        height: 25rem;
+      }
     }
   }
 
