@@ -3,14 +3,54 @@
 .nav {
   @include center($justify: space-between);
 
+  position: relative;
   width: 100%;
   background-color: $nav-bg;
   color: $nav-text;
-  padding: 10px $nav-y-padding;
+  margin: 0;
+  padding: 0.8rem 1.5rem;
   font-size: 12px;
+  list-style: none;
+  z-index: 10;
+
+  .barsIcon {
+    display: inline-block;
+  }
+
+  .searchIcon {
+    display: none;
+  }
+
+  li {
+    display: none;
+    line-height: 1rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: $text;
+      cursor: pointer;
+    }
+  }
 }
 
-.nav span:hover {
-  color: $text;
-  cursor: pointer;
+@media screen and (min-width: 1024px) {
+  .nav {
+    .barsIcon {
+      display: none;
+    }
+
+    .searchIcon {
+      display: inline-block;
+    }
+
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .nav {
+    padding: 0.8rem $nav-y-padding;
+  }
 }

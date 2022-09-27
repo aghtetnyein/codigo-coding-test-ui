@@ -23,18 +23,22 @@ const TV = () => {
         Or watch Apple TV+ online at
         <a href="https://tv.apple.com/"> tv.apple.com</a>
       </span>
+
       <div className={styles.devices}>
         {devices.map((device, index) => (
-          <Image
-            key={index}
-            src={`/images/${device}.png`}
-            width={45}
-            height={90}
-            alt={device}
-          />
+          <div key={index} className={styles.device}>
+            <Image
+              src={`/images/${device.alt}.png`}
+              width={80}
+              height={80}
+              alt={device.alt}
+            />
+            <p>{device.name}</p>
+          </div>
         ))}
       </div>
-      <p>
+
+      <p className={styles.secondHeader}>
         See it on your smart TV
         <br />
         or streaming device.
@@ -45,13 +49,14 @@ const TV = () => {
       <a href="https://www.apple.com/apple-tv-app/devices/">
         Explore compatible devices &gt;
       </a>
+
       <div className={styles["supported-devices"]}>
         {supportedDevices.map((device, index) => (
           <Image
             key={index}
-            src={`/images/${device}.png`}
+            src={`/images/${device}.jpeg`}
             width={100}
-            height={45}
+            height={70}
             alt={device}
           />
         ))}

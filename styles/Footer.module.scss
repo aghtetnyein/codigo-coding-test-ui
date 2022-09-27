@@ -1,10 +1,15 @@
 @import "./variables";
 
-.about {
+.footer {
+  width: 100%;
   background-color: $about-bg;
   color: $about-text;
   font-size: 12px;
-  padding: 2rem $nav-y-padding;
+  padding: 2rem 1.5rem;
+
+  @media (min-width: 1440px) {
+    padding: 2rem $nav-y-padding;
+  }
 }
 
 .breadcrumb {
@@ -17,22 +22,23 @@
 }
 
 .more {
-  @include center($align: flex-start, $justify: flex-start);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
+  display: none;
 
-.more > div {
-  margin: 10px 20px 10px 0;
-}
+  span {
+    display: block;
+    color: $noti-bg;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
 
-.more span {
-  color: $more-text;
-  font-weight: bold;
-}
+  p {
+    margin: 5px 0;
+  }
 
-.more p {
-  margin: 10px 0;
+  @media (min-width: 1024px) {
+    @include grid($itemsCount: 5, $align: flex-start, $justify: space-between);
+  }
 }
 
 .about a {
@@ -40,19 +46,25 @@
   text-decoration: none;
 }
 
+.cr {
+  @media (min-width: 1024px) {
+    @include center($justify: space-between);
+  }
+}
+
+.us {
+  @include center($justify: flex-start);
+  padding: 1rem 0;
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+}
+
 .vl {
   border-left: 1px solid $noti-bg;
   height: 15px;
   margin: 0 10px;
-}
-
-.cr {
-  @include center($justify: flex-start);
-}
-
-.us {
-  @include center($justify: space-between);
-  width: 60%;
 }
 
 .us > div {

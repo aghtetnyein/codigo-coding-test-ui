@@ -2,43 +2,85 @@
 
 .tv {
   @include center($direction: column);
-  padding: 6rem 0;
-}
+  padding: 4rem 1.5rem;
 
-.tv header {
-  font-size: 4.5rem;
-  font-family: "Apple Sans Bold", serif;
-  text-align: center;
-  margin: 2rem 0 1.5rem 0;
-  line-height: 1;
-  letter-spacing: -0.2rem;
-}
+  header {
+    font-size: 1.8rem;
+    font-family: "Apple Sans Bold", serif;
+    text-align: center;
+    margin: 2rem 0 1.5rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.1rem;
 
-.tv span {
-  font-size: 0.9rem;
-  text-align: center;
-}
+    @media (min-width: 1024px) {
+      font-size: 3.5rem;
+    }
 
-.tv a {
-  text-decoration: none;
-  color: $noti-button;
+    @media (min-width: 1440px) {
+      font-size: 4.5rem;
+      line-height: 1;
+      letter-spacing: -0.2rem;
+    }
+  }
+
+  span {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: $noti-button;
+  }
 }
 
 .devices {
-  @include center($justify: space-between);
-  width: 55%;
+  @include grid($itemsCount: 3);
   margin: 4rem 0;
+  gap: 3rem;
+
+  .device {
+    @include center($direction: column);
+  }
+
+  @media (min-width: 768px) {
+    @include grid($itemsCount: 5);
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 7rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 12rem;
+    gap: 8rem;
+  }
 }
 
 .supported-devices {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
+  @include grid($itemsCount: 3);
   margin: 4rem 0;
+  gap: 3rem;
+
+  @media (min-width: 768px) {
+    @include grid($itemsCount: 5);
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 7rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 12rem;
+  }
 }
 
-.tv p {
+.tv .secondHeader {
   @extend header;
-  font-size: 2.3rem;
-  letter-spacing: normal;
+  font-size: 1.8rem;
+  letter-spacing: -0.1rem;
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 }

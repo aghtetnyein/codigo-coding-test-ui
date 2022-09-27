@@ -1,0 +1,73 @@
+@import "./variables";
+
+.gallery {
+  background-color: $nav-bg;
+  padding: 2rem 0;
+
+  .button {
+    @include center;
+    margin-top: 2rem;
+    a {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border-radius: 2rem;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+.firstLineContainer,
+.secondLineContainer {
+  height: 7rem;
+  position: relative;
+  overflow: hidden;
+
+  .photobanner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: bannermove 25s linear infinite;
+  }
+
+  .photobanner img {
+    margin: 0 0.7em;
+    border-radius: 0.5rem;
+    width: 12rem;
+    height: 7rem;
+    object-fit: cover;
+  }
+
+  @keyframes bannermove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    height: 14rem;
+
+    .photobanner img {
+      border-radius: 1rem;
+      width: 24rem;
+      height: 14rem;
+    }
+  }
+}
+
+.secondLineContainer {
+  margin-top: 1rem;
+
+  .photobanner {
+    animation: bannermove 30s linear infinite;
+  }
+}

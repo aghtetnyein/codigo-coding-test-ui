@@ -1,0 +1,208 @@
+@import "./variables";
+
+.sectionHero {
+  @include center($direction: column, $justify: flex-end, $align: flex-start);
+
+  background: url("https://assets.codepen.io/6093409/river.jpg") no-repeat fixed
+    center;
+  background-size: cover;
+  position: relative;
+  z-index: 3;
+  margin-top: -5.5rem;
+  height: 100vh;
+  width: 100vw;
+  padding: 0 1.5rem;
+  font-family: "Apple Sans Medium", sans-serif;
+
+  .bgVideo {
+    display: none;
+    background-size: cover;
+  }
+
+  .content {
+    @include center($direction: column, $justify: flex-end, $align: flex-start);
+
+    gap: 2rem;
+    position: absolute;
+    h2 {
+      font-family: "Apple Sans Bold", sans-serif;
+      font-size: 2.5rem;
+      line-height: 1.1;
+      color: white;
+      margin: 0;
+    }
+
+    a {
+      @include center($justify: space-between, $align: center);
+
+      background-color: white;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 2rem;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    p {
+      color: white;
+      padding: 1rem 0 3rem 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .content {
+      h2 {
+        font-size: 4.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.2rem;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    gap: 2rem;
+    padding: 0 16rem;
+
+    .bgVideo {
+      display: inline-block;
+      height: 100vh;
+      width: 100vw;
+      object-fit: cover;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+  }
+}
+
+.sectionValueProps {
+  @include center($direction: column, $justify: flex-end, $align: flex-start);
+
+  background-color: $nav-bg;
+  position: relative;
+  z-index: 3;
+  height: 100vh;
+  padding: 4rem 1.5rem;
+  font-family: "Apple Sans Medium", sans-serif;
+
+  ul {
+    @include center(
+      $direction: column,
+      $justify: flex-start,
+      $align: flex-start
+    );
+
+    padding: 0;
+    gap: 3rem;
+    list-style: none;
+    font-family: "Apple Sans Bold", sans-serif;
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    ul {
+      color: white;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      letter-spacing: -0.2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 4rem 8rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 4rem 14rem;
+  }
+}
+
+.sectionValuePrices {
+  background-color: $nav-bg;
+  position: relative;
+  z-index: 3;
+  padding: 6rem 1.5rem;
+  font-family: "Apple Sans Medium", sans-serif;
+
+  ul {
+    @include grid(1);
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: white;
+
+    li {
+      display: block;
+      padding: 0 0 5rem 0;
+
+      h5 {
+        font-size: 0.7rem;
+        line-height: 1;
+        margin: 0 0 1rem 0;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+        line-height: 1;
+        margin: 0;
+      }
+
+      p {
+        font-family: "Apple Sans Regular", sans-serif;
+        color: $about-text;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 2rem 0;
+      }
+
+      a {
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 2rem;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    ul {
+      @include grid(3);
+      gap: 3rem;
+
+      li {
+        padding: 0;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 8rem 10rem 8rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 14rem 10rem 14rem;
+    ul {
+      li {
+        h5 {
+          font-size: 1.1rem;
+        }
+
+        h3 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}

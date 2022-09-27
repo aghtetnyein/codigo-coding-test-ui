@@ -1,41 +1,65 @@
 @import "./variables";
 
-.answers {
-  @include center($direction: column, $justify: start);
-  padding: 0 $nav-y-padding;
+.qa {
+  padding: 2rem 1.5rem;
+
+  header {
+    font-size: 1.8rem;
+    font-family: "Apple Sans Bold", serif;
+    text-align: center;
+    margin: 0 0 4rem 0;
+    line-height: 1;
+    letter-spacing: -0.1rem;
+
+    @media (min-width: 1024px) {
+      font-size: 3.5rem;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 4.5rem;
+      line-height: 1;
+      letter-spacing: -0.2rem;
+    }
+  }
+
+  button {
+    @include center($justify: space-between, $align: center);
+
+    background-color: transparent;
+    font-family: "Apple Sans Medium", serif;
+    width: 100%;
+    text-align: start;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 00;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 4rem 10rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 4rem 16rem;
+  }
 }
 
-.answers hr {
-  border: 0.1px solid $border-color;
-  width: 100%;
-}
+.answer {
+  border-bottom: 1px solid $border-color;
+  padding: 0.7rem 0;
 
-.q {
-  cursor: pointer;
-  padding: 0;
-}
+  .q {
+    cursor: pointer;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+  }
 
-.a {
-  padding: 0 0;
-  width: 100%;
-}
-
-.qa header {
-  font-size: 4rem;
-  font-family: "Apple Sans Bold", serif;
-  text-align: center;
-  margin: 0 0 4rem 0;
-  line-height: 1;
-  letter-spacing: -0.1rem;
-}
-
-.qa button {
-  background-color: transparent;
-  font-family: "Apple Sans Bold", serif;
-  width: 100%;
-  text-align: start;
-  border: none;
-  border-radius: 0;
-  font-size: 1.2rem;
-  line-height: 0.1rem;
+  .a {
+    margin: 0;
+    padding: 0 0 0.5rem 0;
+    width: 100%;
+    color: $more-text;
+  }
 }

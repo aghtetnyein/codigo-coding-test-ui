@@ -8,6 +8,7 @@ import styles from "../styles/Nav.module.scss";
 import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
+  Bars2Icon,
 } from "@heroicons/react/24/outline";
 
 // data
@@ -15,15 +16,17 @@ import { navItems } from "../data";
 
 const Navigation = () => {
   return (
-    <div className={styles.nav}>
-      <Image src="/icons/apple.svg" width={20} height={20} alt="apple" />
+    <ul className={styles.nav}>
+      <Bars2Icon className={`${styles.barsIcon} ${styles.icon}`} />
+      <Image src="/icons/apple.svg" width={16} height={16} alt="apple-icon" />
 
       {navItems.map((item) => (
-        <span key={item}>{item}</span>
+        <li key={item}>{item}</li>
       ))}
-      <MagnifyingGlassIcon className="icon" />
+
+      <MagnifyingGlassIcon className={`${styles.searchIcon} ${styles.icon}`} />
       <ShoppingBagIcon className="icon" />
-    </div>
+    </ul>
   );
 };
 

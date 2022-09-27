@@ -11,12 +11,30 @@ $about-text: #8d8d91;
 $more-text: #636365;
 $border-color: #e5e5e5;
 
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+}
+
+.hr {
+  margin: 1rem 0;
+  border: 0.5px solid $nav-text;
+}
+
 @mixin center($direction: row, $justify: center, $align: center) {
   display: flex;
   flex-wrap: wrap;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
+}
+
+@mixin grid($itemsCount: 1, $align: center, $justify: center) {
+  display: grid;
+  grid-template-columns: repeat($itemsCount, 1fr);
+  justify-items: $justify;
+  align-items: $align;
 }
 
 @font-face {

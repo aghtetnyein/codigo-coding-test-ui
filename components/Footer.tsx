@@ -19,7 +19,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className={styles.about}>
+    <div className={styles.footer}>
       <div>
         * The Apple One free trial includes only services that you are not
         currently using through a free trial or a subscription. Plan
@@ -45,8 +45,9 @@ const Footer = () => {
         Music Student subscription. Offer good for verified college students
         only and does not extend to a Family Sharing group.
       </div>
-      <br />
-      <hr />
+
+      <hr className={styles.hr} />
+
       <div className={styles.breadcrumb}>
         <Image
           src="/icons/apple-brown.svg"
@@ -59,91 +60,78 @@ const Footer = () => {
         <span>&gt;</span>
         <span>Apple TV+</span>
       </div>
+
+      <hr className={styles.hr} />
+
       <div className={styles.more}>
         <div>
-          <span>Shop and Learn</span>
+          <span className={styles.title}>Shop and Learn</span>
           {shopNLearn.map((item) => (
             <p key={item}>{item}</p>
           ))}
         </div>
         <div>
-          <span>Services</span>
+          <span className={styles.title}>Services</span>
           {services.map((item) => (
             <p key={item}>{item}</p>
           ))}
-        </div>
-        <div>
-          <span>Account</span>
+          <span className={styles.title}>Account</span>
           {account.map((item) => (
             <p key={item}>{item}</p>
           ))}
         </div>
         <div>
-          <span>Apple Store</span>
+          <span className={styles.title}>Apple Store</span>
           {appleStore.map((item) => (
             <p key={item}>{item}</p>
           ))}
         </div>
         <div>
-          <span>For Business</span>
+          <span className={styles.title}>For Business</span>
           {forBusiness.map((item) => (
             <p key={item}>{item}</p>
           ))}
-        </div>
-        <div>
-          <span>For Education</span>
+          <span className={styles.title}>For Education</span>
           {forEducation.map((item) => (
             <p key={item}>{item}</p>
           ))}
-        </div>
-        <div>
-          <span>For Healthcare</span>
+          <span className={styles.title}>For Healthcare</span>
           {forHealthcare.map((item) => (
             <p key={item}>{item}</p>
           ))}
-        </div>
-        <div>
-          <span>For Government</span>
+          <span className={styles.title}>For Government</span>
           {forGovernment.map((item) => (
             <p key={item}>{item}</p>
           ))}
         </div>
         <div>
-          <span>Apple Values</span>
+          <span className={styles.title}>Apple Values</span>
           {appleValues.map((item) => (
             <p key={item}>{item}</p>
           ))}
-        </div>
-        <div>
-          <span>About Apple</span>
+          <span className={styles.title}>About Apple</span>
           {aboutApple.map((item) => (
             <p key={item}>{item}</p>
           ))}
         </div>
       </div>
-      <p>
+
+      <p style={{ marginTop: "3rem" }}>
         More ways to shop :
         <a href="https://www.apple.com/retail/">Find an Apple Store</a> or
         <a href="https://locate.apple.com/"> other retailer </a> near you . Or
         call 1-800 - MY - APPLE .
       </p>
-      <br />
-      <hr />
-      <br />
+      <hr className={styles.hr} />
       <div className={styles.cr}>
         Copyright © 2022 Apple Inc. All rights reserved.
         <div className={styles.us}>
-          <div>
-            <div className={styles.vl} /> Privacy Policy{" "}
-            <div className={styles.vl} /> Terms of Use{" "}
-            <div className={styles.vl} /> Sales and Refunds{" "}
-            <div className={styles.vl} /> Legal <div className={styles.vl} />{" "}
-            Site Map{" "}
-          </div>
-          <div>
-            <p>United States</p>
-          </div>
+          <div /> Privacy Policy <div className={styles.vl} /> Terms of Use{" "}
+          <div className={styles.vl} /> Sales and Refunds{" "}
+          <div className={styles.vl} /> Legal <div className={styles.vl} /> Site
+          Map{" "}
         </div>
+        United States
       </div>
     </div>
   );

@@ -3,13 +3,14 @@
 .sticky {
   @include center($justify: space-between);
 
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   font-size: 1.2rem;
   font-family: "Apple Sans Bold", serif;
   color: $text;
   background-color: $sticky-bg;
-  padding: 0.2rem $nav-y-padding;
+  padding: 0.2rem 1.5rem;
   z-index: 10;
 }
 
@@ -20,4 +21,10 @@
   color: $noti-bg;
   cursor: pointer;
   padding: 5px 10px;
+}
+
+@media screen and (min-width: 1440px) {
+  .sticky {
+    padding: 0.2rem $nav-y-padding;
+  }
 }
