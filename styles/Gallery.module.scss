@@ -3,6 +3,7 @@
 .gallery {
   background-color: $nav-bg;
   padding: 2rem 0;
+  overflow-x: hidden;
 
   .button {
     @include center;
@@ -21,6 +22,50 @@
   }
 }
 
+.heroContainer {
+  display: flex;
+  position: relative;
+  scroll-behavior: smooth;
+
+  .imageContainer {
+    display: flex;
+    background-color: $nav-bg;
+    transition: all 0.5s ease-in-out;
+    padding: 3rem 0;
+    gap: 2rem;
+    img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      transition: all 0.5s ease-in-out;
+      border-radius: 1rem;
+    }
+  }
+
+  .leftIcon {
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: white;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .rightIcon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: white;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}
+
 .firstLineContainer,
 .secondLineContainer {
   height: 7rem;
@@ -33,7 +78,7 @@
     left: 0px;
     overflow: hidden;
     white-space: nowrap;
-    animation: bannermove 25s linear infinite;
+    animation: bannermove 40s linear infinite;
   }
 
   .photobanner img {
@@ -42,15 +87,6 @@
     width: 12rem;
     height: 7rem;
     object-fit: cover;
-  }
-
-  @keyframes bannermove {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-50%, 0);
-    }
   }
 
   @media (min-width: 1440px) {
@@ -68,6 +104,24 @@
   margin-top: 1rem;
 
   .photobanner {
-    animation: bannermove 30s linear infinite;
+    animation: bannermove 50s linear infinite;
+  }
+}
+
+@keyframes bannermove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes leftMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, 0);
   }
 }

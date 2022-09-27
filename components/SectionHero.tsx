@@ -1,13 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 // scss
 import styles from "../styles/SectionHero.module.scss";
 
 const SectionHero = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const video = document.getElementById("bgVideo");
+      const firstContent = document.getElementById("firstContent");
+      const secondContent = document.getElementById("secondContent");
+      const thirdContent = document.getElementById("thirdContent");
+      const fourthContent = document.getElementById("fourthContent");
+      const price = document.getElementById("price");
+      // video!.style.opacity = `${1 - window.scrollY / 700}`;
+      video!.style.backgroundColor = `rgba(0, 0, 0, ${window.scrollY / 500})`;
+      firstContent!.style.opacity = `${1 - window.scrollY / 200}`;
+
+      if (scrollY > 200) {
+        secondContent!.style.opacity = `${0 + (scrollY - 200) / 200}`;
+      }
+      if (scrollY > 300) {
+        thirdContent!.style.opacity = `${0 + (scrollY - 300) / 200}`;
+      }
+      if (scrollY > 400) {
+        fourthContent!.style.opacity = `${0 + (scrollY - 400) / 200}`;
+      }
+      if (scrollY > 500) {
+        price!.style.opacity = `${0 + (scrollY - 700) / 300}`;
+      }
+    });
+  }, []);
+
   return (
     <>
-      <section className={styles.sectionHero}>
+      <div id="bgVideo">
         <video
           className={styles.bgVideo}
           autoPlay
@@ -15,37 +43,36 @@ const SectionHero = () => {
           muted
           poster="https://assets.codepen.io/6093409/river.jpg"
         >
-          <source
-            src="https://assets.codepen.io/6093409/river.mp4"
-            type="video/mp4"
-          />
+          <source src="/video/video.mp4" type="video/mp4" />
         </video>
-        <div className={styles.content}>
-          <h2>
-            All Apple Originals.
-            <br />
-            Only on Apple TV+.
-          </h2>
-          <a href="https://tv.apple.com/channel/tvs.sbd.4000?itscg=10000&itsct=atv-tv_op-nav_wch-ctr-210111">
-            Stream now
-          </a>
-          <p>Watch on the tv App</p>
-        </div>
-      </section>
+        <section className={styles.sectionHero}>
+          <div id="firstContent" className={styles.content}>
+            <h2>
+              All Apple Originals.
+              <br />
+              Only on Apple TV+.
+            </h2>
+            <a href="https://tv.apple.com/channel/tvs.sbd.4000?itscg=10000&itsct=atv-tv_op-nav_wch-ctr-210111">
+              Stream now
+            </a>
+            <p>Watch on the tv App</p>
+          </div>
+        </section>
 
-      <section className={styles.sectionValueProps}>
-        <ul>
-          <li>New Apple Originals every month.</li>
-          <li>
-            Stream on the Apple TV app on Apple devices, smart TVs, consoles,
-            sticks.
-          </li>
-          <li>Share Apple TV+ with your family</li>
-        </ul>
-      </section>
+        <section className={styles.sectionValueProps}>
+          <ul>
+            <li id="secondContent">New Apple Originals every month.</li>
+            <li id="thirdContent">
+              Stream on the Apple TV app on Apple devices, smart TVs, consoles,
+              sticks.
+            </li>
+            <li id="fourthContent">Share Apple TV+ with your family</li>
+          </ul>
+        </section>
+      </div>
 
       <section className={styles.sectionValuePrices}>
-        <ul>
+        <ul id="price" style={{ opacity: 0 }}>
           <li>
             <h5>Buy an Apple device</h5>
             <h3>3 months free.</h3>
