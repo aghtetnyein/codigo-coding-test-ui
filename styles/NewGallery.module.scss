@@ -21,6 +21,11 @@
   }
 }
 
+.heroGallery {
+  position: sticky;
+  top: 0;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -38,29 +43,43 @@
   .active {
     width: 100vw;
     height: 100vh;
-    background: url("/images/image-3.jpeg") center/cover no-repeat;
     z-index: 1;
   }
+}
 
-  .prev {
-    display: none;
-    opacity: 0;
-    background: url("/images/image-1.jpeg") center/cover no-repeat;
-    border-radius: 0.8rem;
-  }
+.carousel {
+  opacity: 0;
+  display: flex;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  margin-top: -60vh;
 
-  .next {
-    display: none;
-    opacity: 0;
-    background: url("/images/image-2.jpeg") center/cover no-repeat;
-    border-radius: 0.8rem;
+  .imageContainer {
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    padding: 3rem 0;
+    gap: 2rem;
+    transform: translateX(-18.85%);
+    img {
+      width: 49vw;
+      height: 49vh;
+      object-fit: cover;
+      transition: all 0.5s ease-in-out;
+      border-radius: 1rem;
+
+      @media (min-width: 768px) {
+        width: 44rem;
+        height: 25rem;
+      }
+    }
   }
 
   .leftIcon {
-    opacity: 0;
     z-index: 3;
     position: absolute;
     left: 0;
+    top: 50%;
     width: 3.5rem;
     height: 3.5rem;
     color: white;
@@ -69,10 +88,9 @@
   }
 
   .rightIcon {
-    opacity: 0;
-    z-index: 3;
     position: absolute;
     right: 0;
+    top: 50%;
     width: 3.5rem;
     height: 3.5rem;
     color: white;
