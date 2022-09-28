@@ -9,6 +9,7 @@ import Cards from "../components/Cards";
 import Footer from "../components/Footer";
 import SectionHero from "../components/SectionHero";
 import Gallery from "../components/Gallery";
+import NewGallery from "../components/NewGallery";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,8 @@ const Home: NextPage = () => {
       <Navigation />
       <StickyNav />
       <SectionHero />
-      <Gallery />
+      {/* <Gallery /> */}
+      <NewGallery />
       <TV />
       <QA />
       <Cards />
