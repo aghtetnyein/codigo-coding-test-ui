@@ -2,8 +2,8 @@
 
 .gallery {
   background-color: $nav-bg;
-  padding: 2rem 0;
   overflow-x: hidden;
+  padding: 2rem 0;
 
   .button {
     @include center;
@@ -26,24 +26,21 @@
   display: flex;
   position: relative;
   scroll-behavior: smooth;
+  background-color: $nav-bg;
 
   .imageContainer {
     display: flex;
-    background-color: $nav-bg;
+    align-items: flex-end;
     transition: all 0.5s ease-in-out;
-    padding: 3rem 0;
-    gap: 2rem;
-    img {
-      width: 24rem;
-      height: 12rem;
-      object-fit: cover;
-      transition: all 0.5s ease-in-out;
-      border-radius: 1rem;
+    padding: 0 0 1rem 0;
+    gap: 1vw;
 
-      @media (min-width: 768px) {
-        width: 44rem;
-        height: 25rem;
-      }
+    div {
+      width: 49vw;
+      height: 25rem;
+      object-fit: cover;
+      border-radius: 1rem;
+      transform: translateX(-50%);
     }
   }
 
@@ -114,15 +111,6 @@
 }
 
 @keyframes bannermove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-50%, 0);
-  }
-}
-
-@keyframes leftMove {
   0% {
     transform: translate(0, 0);
   }

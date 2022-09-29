@@ -1,69 +1,78 @@
+import { url } from "inspector";
 import React, { useEffect } from "react";
-import Image from "next/image";
 
-// scss
 import styles from "../styles/Gallery.module.scss";
 
 // icons
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
-const Gallery = () => {
+const NewGallery = () => {
+  const [currentSlideState, setCurrentSlideState] = React.useState(2);
+
   useEffect(() => {
     const imageContainer = document.getElementById("imageContainer");
+    // const activeImage = document.getElementById("activeImage");
     const leftClick = document.getElementById("leftClick");
     const rightClick = document.getElementById("rightClick");
 
     let currentTranslate = 0;
-    let currentSlide = 1;
-    let space = 46;
-    const maxSlide = 8;
+    let translateAmount = 50;
+    let translateAmountForFirstAndLast = 25.5;
+    let currentSlide = currentSlideState;
+    let maxSlide = 8;
 
-    const handleWindowResize = () => {
-      if (window.innerWidth < 768) {
-        space = 26;
-      } else {
-        space = 46;
-      }
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-
-    setInterval(() => {
-      if (currentSlide < maxSlide - 1) {
-        currentSlide++;
-        currentTranslate -= space;
-      } else {
-        currentSlide = 1;
-        currentTranslate = 0;
-      }
-      imageContainer!.style.transform = `translateX(${currentTranslate}rem)`;
-    }, 5000);
-
-    leftClick!.addEventListener("click", () => {
+    const handleLeftClick = () => {
       if (currentSlide > 1) {
         currentSlide--;
-        currentTranslate += space;
+        if (currentSlide === 1) {
+          currentTranslate += translateAmount - translateAmountForFirstAndLast;
+        } else if (currentSlide === maxSlide - 1) {
+          currentTranslate += translateAmountForFirstAndLast;
+        } else {
+          currentTranslate += translateAmount;
+        }
       } else {
-        currentSlide = maxSlide - 1;
-        currentTranslate = -space * 2;
+        currentSlide = maxSlide;
+        currentTranslate =
+          -translateAmount * (maxSlide - 1) +
+          translateAmount +
+          translateAmountForFirstAndLast;
       }
-      imageContainer!.style.transform = `translateX(${currentTranslate}rem)`;
-    });
 
-    rightClick!.addEventListener("click", () => {
-      if (currentSlide < maxSlide - 1) {
+      console.log(currentSlide);
+      setCurrentSlideState(currentSlide);
+
+      imageContainer!.style.transform = `translateX(${currentTranslate}vw)`;
+    };
+
+    const handleRightClick = () => {
+      if (currentSlide < maxSlide) {
         currentSlide++;
-        currentTranslate -= space;
+        if (currentSlide === 2 || currentSlide === 8) {
+          currentTranslate -= translateAmountForFirstAndLast;
+        } else {
+          currentTranslate -= translateAmount;
+        }
       } else {
         currentSlide = 1;
-        currentTranslate = 0;
+        console.log(currentSlide);
+        currentTranslate = translateAmountForFirstAndLast - 1;
       }
-      imageContainer!.style.transform = `translateX(${currentTranslate}rem)`;
-    });
+
+      console.log(currentSlide);
+      setCurrentSlideState(currentSlide);
+
+      imageContainer!.style.transform = `translateX(${currentTranslate}vw)`;
+    };
+
+    leftClick?.addEventListener("click", handleLeftClick);
+    rightClick?.addEventListener("click", handleRightClick);
 
     return () => {
-      window.removeEventListener("resize", handleWindowResize);
+      leftClick?.removeEventListener("click", handleLeftClick);
+      rightClick?.removeEventListener("click", handleRightClick);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -72,20 +81,24 @@ const Gallery = () => {
         <div id="imageContainer" className={styles.imageContainer}>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
-              id={`image${item}`}
+            <div
+              id={currentSlideState === item ? "activeImage" : ""}
+              className={item === currentSlideState ? styles.active : ""}
               key={index}
-              src={`/images/image-${item}.jpeg`}
-              alt={`image-${item}`}
-            />
+              style={{
+                background: `url("/images/image-${item}.jpeg") no-repeat center center/cover`,
+              }}
+            ></div>
           ))}
         </div>
+
         <ChevronLeftIcon id={"leftClick"} className={styles.leftIcon} />
         <ChevronRightIcon id={"rightClick"} className={styles.rightIcon} />
       </div>
+
       <div className={styles.firstLineContainer}>
         <div className={styles.photobanner}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
+          {[7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, 2, 3, 4, 5, 6].map(
             (item, index) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -111,6 +124,7 @@ const Gallery = () => {
           )}
         </div>
       </div>
+
       <div className={styles.button}>
         <a href="https://tv.apple.com/channel/tvs.sbd.4000?itscg=10000&itsct=atv-0-tv_ovp-prc_full-apl-avl-200306">
           See full lineup
@@ -120,4 +134,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default NewGallery;
