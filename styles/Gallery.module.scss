@@ -3,7 +3,7 @@
 .gallery {
   background-color: $nav-bg;
   overflow-x: hidden;
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
 
   .button {
     @include center;
@@ -31,9 +31,12 @@
   .imageContainer {
     display: flex;
     align-items: flex-end;
+    justify-content: center;
+    overflow-x: hidden;
     transition: all 0.5s ease-in-out;
     padding: 0 0 1rem 0;
     gap: 1vw;
+    height: 200vh;
 
     div {
       width: 49vw;
@@ -42,28 +45,34 @@
       border-radius: 1rem;
       transform: translateX(-50%);
     }
+
+    .active {
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      transform: translateX(0);
+    }
   }
 
   .leftIcon {
     z-index: 3;
     position: absolute;
     left: 0;
-    top: 50%;
+    bottom: 12rem;
     width: 3.5rem;
     height: 3.5rem;
     color: white;
-    transform: translateY(-50%);
     cursor: pointer;
   }
 
   .rightIcon {
     position: absolute;
     right: 0;
-    top: 50%;
+    bottom: 12rem;
     width: 3.5rem;
     height: 3.5rem;
     color: white;
-    transform: translateY(-50%);
     cursor: pointer;
   }
 }
