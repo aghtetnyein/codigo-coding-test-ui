@@ -36,43 +36,50 @@
     gap: 1vw;
 
     div {
-      width: 49vw;
-      height: 25rem;
+      width: 44rem;
+      height: 29rem;
       object-fit: cover;
       border-radius: 1rem;
       transform: translateX(-50%);
     }
+
+    .active {
+      opacity: 1;
+      border-radius: 0rem;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+
+  .leftIcon,
+  .rightIcon {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: white;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .leftIcon {
-    z-index: 3;
-    position: absolute;
     left: 0;
-    top: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
-    color: white;
-    transform: translateY(-50%);
-    cursor: pointer;
   }
 
   .rightIcon {
-    position: absolute;
     right: 0;
-    top: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
-    color: white;
-    transform: translateY(-50%);
-    cursor: pointer;
   }
 }
 
 .firstLineContainer,
 .secondLineContainer {
+  opacity: 0;
   height: 7rem;
   position: relative;
   overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
 
   .photobanner {
     position: absolute;
@@ -84,7 +91,7 @@
   }
 
   .photobanner img {
-    margin: 0 0.7em;
+    margin: 0 0.5vw;
     border-radius: 0.5rem;
     width: 12rem;
     height: 7rem;
